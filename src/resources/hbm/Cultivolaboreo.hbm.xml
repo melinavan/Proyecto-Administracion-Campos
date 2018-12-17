@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/12/2018 10:20:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="resources.hbm.Cultivolaboreo" table="cultivolaboreo" catalog="camposadmin" optimistic-lock="version">
+        <id name="idcultivolaboreo" type="java.lang.Integer">
+            <column name="idcultivolaboreo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cultivo" class="resources.hbm.Cultivo" fetch="select">
+            <column name="idcultivo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="laboreo" class="resources.hbm.Laboreo" fetch="select">
+            <column name="idlaboreo" not-null="true" />
+        </many-to-one>
+        <property name="orden" type="java.lang.Integer">
+            <column name="orden" />
+        </property>
+        <property name="activo" type="boolean">
+            <column name="activo" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

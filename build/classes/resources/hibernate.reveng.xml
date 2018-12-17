@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<!--
+
+Contributor(s):
+-->
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="camposadmin"/>
+  <table-filter match-name="lote"/>
+  <table-filter match-name="cultivo"/>
+  <table-filter match-name="laboreo"/>
+  <table-filter match-name="tiposuelo"/>
+  <table-filter match-name="campo"/>
+  <table-filter match-name="estadoproyecto"/>
+  <table-filter match-name="tiposuelocultivo"/>
+  <table-filter match-name="proyecto"/>
+  <table-filter match-name="cultivolaboreo"/>
+  <table-filter match-name="proyectolaboreo"/>
+  <table-filter match-name="estadocampo"/>
+</hibernate-reverse-engineering>

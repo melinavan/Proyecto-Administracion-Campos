@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/12/2018 10:20:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="resources.hbm.Proyecto" table="proyecto" catalog="camposadmin" optimistic-lock="version">
+        <id name="idproyecto" type="java.lang.Integer">
+            <column name="idproyecto" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="estadoproyecto" class="resources.hbm.Estadoproyecto" fetch="select">
+            <column name="idestadoproyecto" not-null="true" />
+        </many-to-one>
+        <many-to-one name="lote" class="resources.hbm.Lote" fetch="select">
+            <column name="idlote" not-null="true" />
+        </many-to-one>
+        <property name="feinicio" type="timestamp">
+            <column name="feinicio" length="19" not-null="true" />
+        </property>
+        <property name="fefin" type="timestamp">
+            <column name="fefin" length="19" />
+        </property>
+        <property name="responsable" type="string">
+            <column name="responsable" length="45" not-null="true" />
+        </property>
+        <property name="activo" type="boolean">
+            <column name="activo" not-null="true" />
+        </property>
+        <set name="proyectolaboreos" table="proyectolaboreo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idproyecto" not-null="true" />
+            </key>
+            <one-to-many class="resources.hbm.Proyectolaboreo" />
+        </set>
+    </class>
+</hibernate-mapping>

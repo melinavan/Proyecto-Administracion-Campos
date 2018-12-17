@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/12/2018 10:20:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="resources.hbm.Lote" table="lote" catalog="camposadmin" optimistic-lock="version">
+        <id name="idlote" type="java.lang.Integer">
+            <column name="idlote" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="campo" class="resources.hbm.Campo" fetch="select">
+            <column name="idcampo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tiposuelo" class="resources.hbm.Tiposuelo" fetch="select">
+            <column name="idtiposuelo" not-null="true" />
+        </many-to-one>
+        <property name="numero" type="int">
+            <column name="numero" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="45" not-null="true" />
+        </property>
+        <property name="superficie" type="int">
+            <column name="superficie" not-null="true" />
+        </property>
+        <set name="proyectos" table="proyecto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idlote" not-null="true" />
+            </key>
+            <one-to-many class="resources.hbm.Proyecto" />
+        </set>
+    </class>
+</hibernate-mapping>

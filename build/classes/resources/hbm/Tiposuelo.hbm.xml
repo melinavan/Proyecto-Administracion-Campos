@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/12/2018 10:20:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="resources.hbm.Tiposuelo" table="tiposuelo" catalog="camposadmin" optimistic-lock="version">
+        <id name="idtiposuelo" type="java.lang.Integer">
+            <column name="idtiposuelo" />
+            <generator class="identity" />
+        </id>
+        <property name="numero" type="int">
+            <column name="numero" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="45" not-null="true" />
+        </property>
+        <property name="activo" type="boolean">
+            <column name="activo" not-null="true" />
+        </property>
+        <set name="lotes" table="lote" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idtiposuelo" not-null="true" />
+            </key>
+            <one-to-many class="resources.hbm.Lote" />
+        </set>
+        <set name="tiposuelocultivos" table="tiposuelocultivo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idtiposuelo" not-null="true" />
+            </key>
+            <one-to-many class="resources.hbm.Tiposuelocultivo" />
+        </set>
+    </class>
+</hibernate-mapping>

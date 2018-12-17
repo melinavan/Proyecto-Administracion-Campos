@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f7513677-9855-48cd-a140-3bcaec398987">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     proyecto.`idproyecto` AS proyecto_idproyecto,
+     proyecto.`idlote` AS proyecto_idlote,
+     proyecto.`feinicio` AS proyecto_feinicio,
+     proyecto.`fefin` AS proyecto_fefin,
+     proyecto.`idestadoproyecto` AS proyecto_idestadoproyecto,
+     proyecto.`responsable` AS proyecto_responsable,
+     proyecto.`activo` AS proyecto_activo,
+     proyecto.`idcultivo` AS proyecto_idcultivo,
+     lote.`idlote` AS lote_idlote,
+     lote.`numero` AS lote_numero,
+     lote.`descripcion` AS lote_descripcion,
+     lote.`superficie` AS lote_superficie,
+     lote.`idtiposuelo` AS lote_idtiposuelo,
+     lote.`idcampo` AS lote_idcampo
+FROM
+     `lote` lote INNER JOIN `proyecto` proyecto ON lote.`idlote` = proyecto.`idlote`]]>
+	</queryString>
+	<field name="proyecto_feinicio" class="java.sql.Timestamp"/>
+	<field name="proyecto_fefin" class="java.sql.Timestamp"/>
+	<field name="proyecto_responsable" class="java.lang.String"/>
+	<field name="lote_descripcion" class="java.lang.String"/>
+	<field name="lote_superficie" class="java.lang.Integer"/>
+	<field name="proyecto_idproyecto" class="java.lang.Integer"/>
+	<group name="proyecto_idproyecto">
+		<groupExpression><![CDATA[$F{proyecto_idproyecto}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="2803977b-4e35-451b-b2ec-38d5c41a5760"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[proyecto_idproyecto]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="168e4f90-03be-4e69-9707-5e494c334aa2"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{proyecto_idproyecto}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="101acf94-2db6-4416-9769-a76cee1f6aea"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="047d72bb-7683-4a56-b3ca-ebea18e9dfab"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="de2a11b9-ef5e-4bb7-b477-2711b83c3440"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[PROYECTOS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="144" y="72" width="180" height="20" forecolor="#FFFFFF" uuid="2b8e1819-5b75-45e4-871b-11a055f5fa32"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[LOTES]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="5fb84506-a996-432a-9e37-eb8db8dce51a"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3e74138e-467d-4029-ac2b-ef859bd26fe5"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[proyecto_feinicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="111" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="551efc49-e1b2-4ff8-83d1-d153a8a93d21"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[proyecto_fefin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="222" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="efe8d8d0-5000-4e85-a626-cd724cadbb65"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[proyecto_responsable]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="333" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="11248615-8aa1-4650-a0fb-b4526dc2abfa"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[lote_descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="444" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="6fb966b0-6965-4554-b067-fe8028756fab"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[lote_superficie]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="b9f783d1-3553-4eb6-9057-062c949796af"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="111" height="20" uuid="dc03fb2a-17d0-418e-a2c4-56ff474ae924"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{proyecto_feinicio}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="111" y="0" width="111" height="20" uuid="0ed7949f-b45f-4361-b81d-b5f7eedcfd3f"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{proyecto_fefin}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="222" y="0" width="111" height="20" uuid="6f91c4a8-412d-4e43-a378-9aa8268c1567"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{proyecto_responsable}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="333" y="0" width="111" height="20" uuid="8bcc001b-6486-4442-bd84-11625eb6fc1b"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lote_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="444" y="0" width="111" height="20" uuid="4d639ed0-b9d9-4ba7-8702-bfd19a55cc5f"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lote_superficie}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="8775a90f-b7cd-41a9-a338-caedafeaa5f7"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="4e00331c-3a53-427e-93dd-670a48c22df7"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="6be4c96d-e19b-4cb4-b64c-9cfac31ea940"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

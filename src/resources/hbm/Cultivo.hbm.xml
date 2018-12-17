@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/12/2018 10:20:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="resources.hbm.Cultivo" table="cultivo" catalog="camposadmin" optimistic-lock="version">
+        <id name="idcultivo" type="java.lang.Integer">
+            <column name="idcultivo" />
+            <generator class="identity" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="45" not-null="true" />
+        </property>
+        <property name="activo" type="boolean">
+            <column name="activo" not-null="true" />
+        </property>
+        <set name="tiposuelocultivos" table="tiposuelocultivo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idcultivo" not-null="true" />
+            </key>
+            <one-to-many class="resources.hbm.Tiposuelocultivo" />
+        </set>
+        <set name="cultivolaboreos" table="cultivolaboreo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idcultivo" not-null="true" />
+            </key>
+            <one-to-many class="resources.hbm.Cultivolaboreo" />
+        </set>
+    </class>
+</hibernate-mapping>
